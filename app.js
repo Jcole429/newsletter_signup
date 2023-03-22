@@ -4,7 +4,7 @@ const https = require("https");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 const app = express();
-const port = 3000;
+const localPort = 3000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +14,7 @@ mailchimp.setConfig({
     server: mailchimpServerPrefix,
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || localPort, () => {
     console.log("App listening on port " + port);
 })
 
