@@ -15,7 +15,7 @@ mailchimp.setConfig({
 });
 
 app.listen(process.env.PORT || localPort, () => {
-    console.log("App listening on port " + port);
+    console.log("App listening on port " + localPort);
 })
 
 app.get("/", (req, res) => {
