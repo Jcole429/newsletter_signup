@@ -36,11 +36,23 @@ app.post("/", (req, res) => {
         }
     }
 
-    mailchimpAddContact(subscribingUser);
+    const run = async () => {
+        try {
+            const response = await mailchimp.lists.addListMember(mailchimpAudienceId, subscribingUser);
+            console.log("Response: " + response);
+            console.log("Here: " + response.id);
+            res.sendFile(__dirname + "/success.html");
+        } catch (e) {
+            console.log(e.response.statusCode);
+            console.log(e.response.body.title);
+            console.log("Detail: " + e.response.body.detail);
+
+            res.sendFile(__dirname + "/failure.html");
+        }
+    }
+    run();
 });
 
-async function mailchimpAddContact(subscribingUser) {
-    const response = await mailchimp.lists.addListMember(mailchimpAudienceId, subscribingUser);
-    console.log(response);
-    console.log(`Successfully added contact as an audience member. The contact's id is ${response.id}.`);
-}
+app.post("/failure", (req, res) => {
+    res.redirect("/");
+});
