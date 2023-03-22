@@ -19,24 +19,25 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form>
+        <form action="/" method="post">
             <img class="mb-4" src="images/img-placeholder.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Signup for Newsletter</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control top" id="floatingFirstName" placeholder="First Name" required
-                    autofocus>
+                <input type="text" name="firstName" class="form-control top" id="floatingFirstName"
+                    placeholder="First Name" required autofocus>
                 <label for="floatingFirstName">First Name</label>
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control middle" id="floatingLastName" placeholder="Last Name" required>
+                <input type="text" name="lastName" class="form-control middle" id="floatingLastName"
+                    placeholder="Last Name" required>
                 <label for="floatingLastName">Last Name</label>
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control bottom" id="floatingEmail" placeholder="name@example.com"
-                    required>
+                <input type="email" name="email" class="form-control bottom" id="floatingEmail"
+                    placeholder="name@example.com" required>
                 <label for="floatingEmail">Email address</label>
             </div>
 
