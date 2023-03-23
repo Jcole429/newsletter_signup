@@ -9,6 +9,10 @@ const localPort = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+const mailchimpServerPrefix = process.env.MAILCHIMP_SERVER_PREFIX;
+const mailchimpAudienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+
 mailchimp.setConfig({
     apiKey: mailchimpApiKey,
     server: mailchimpServerPrefix,
